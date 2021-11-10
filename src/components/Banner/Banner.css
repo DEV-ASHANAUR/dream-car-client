@@ -1,0 +1,74 @@
+.bg-banner{
+    background:url('../../assets/banner/banner.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    /* min-height: 90vh; */
+    background-repeat: no-repeat;
+    position: relative;
+    margin-top: -10px;
+}
+
+.custom-shape{
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 138px;
+    transform: rotate(180deg);
+    z-index: 1;
+}
+.custom-shape .shape-fill {
+    fill: #FAF9F9;
+}
+.overly {
+    background: #13061a78;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.overly h1{
+    color: #fff;
+}
+.head-img{
+    position: absolute;
+    bottom: 0;
+}
+.discover-btn{
+    background:none;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 15px;
+    transition: 0.5s ease;
+    font-size: 18px;
+}
+.discover-btn:hover{
+    border: 2px solid #116840;
+    background:#111868;
+    color: #fff;
+}
+.head-description{
+    font-size: 20px;
+    width: 50%;
+    color: #fff;
+}
+
+/* media */
+
+@media (max-width: 575.98px) {
+    .head-description{
+        font-size: 18px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .head-description{
+        width: 90%;
+    }
+}

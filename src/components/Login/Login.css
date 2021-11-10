@@ -1,0 +1,38 @@
+.login-banner{
+    /* background: url('../../assets/login-bg.jpg'); */
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 90vh;
+    background-repeat: no-repeat;
+}
+.submit-btn{
+    display: block;
+    width: 100%;
+    border: none;
+    background: red;
+    padding:10px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #fff;
+    transition: 0.5s ease;
+}
+.submit-btn:hover{
+    background: rgb(224, 54, 54);
+}
+.google-btn{
+    display: block;
+    width: 100%;
+    border: 2px solid #ddd;
+    background: none;
+    padding:10px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #000;
+    transition: 0.5s ease;
+}
+.google-btn:hover{
+    background: rgb(218, 201, 201);
+}

@@ -1,0 +1,27 @@
+.footer-section{
+    background: #111868;
+}
+.newsletter {
+    width: 50%;
+    padding: 3px 5px;
+}
+.newsletter:focus{
+    outline: none !important;
+}
+.btn-send {
+    background: #38bfcd;
+    border: none;
+    padding: 5px 10px;
+    color: #fff;
+}
+.social-icon i {
+    padding: 16px;
+    font-size: 23px;
+}
+.icon-color p i{
+    color: orangered;
+    padding-right: 10px;
+}
+.footer-border{
+    border-bottom: 2px solid orangered;
+}
