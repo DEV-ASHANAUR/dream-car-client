@@ -43,6 +43,15 @@ a.nav-link.login:hover {
     background: white;
     color: #111868!important;
 }
+.logout{
+    background: red;
+    border: 2px solid red;
+    /* border-radius: 20px; */
+    padding: 6px 25px!important;
+    color: #fff!important;
+    transition: .3s;
+    font-weight: 700;
+}
 .logo{
     font-weight: 700;
     font-size: 23px;

@@ -1,5 +1,7 @@
 import React from 'react';
 import './ServiceArea.css'
+import { Link} from "react-router-dom";
+
 import image from '../../assets/service/car1.png';
 const ServiceArea = () => {
     return (
@@ -86,7 +88,9 @@ const ServiceArea = () => {
                         </div>
                     </div>
                 </div>
-                <button className='more-btn my-3 text-uppercase'>view more</button>
+                <Link to="/allProduct">
+                    <button className='more-btn my-3 text-uppercase'>view more</button>
+                </Link>
             </div>
         </div>
     );

@@ -32,3 +32,12 @@
     height: 60px;
     border-radius: 50%;
 }
+.dashboardHeading{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.Dashboard_menu a.active{
+    background-color: #111868;
+    color: #fff!important;
+}

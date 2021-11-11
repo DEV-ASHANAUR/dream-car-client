@@ -1,0 +1,31 @@
+.error-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 65vh;
+}
+.error-wrapper h1{
+    font-weight: 700;
+    color: purple;
+    margin-bottom: 0;
+}
+.error-wrapper h2{
+    font-weight: 700;
+    margin: 15px 0;
+}
+.btn-not-found{
+    border: none;
+    background: purple;
+    padding: 5px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-size: medium;
+    letter-spacing: 1;
+    color: #fff;
+    margin-top: 5px;
+}
+.btn-not-found:hover{
+    background: rgb(180, 8, 180);
+    
+}
