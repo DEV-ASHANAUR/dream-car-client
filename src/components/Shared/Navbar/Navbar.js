@@ -15,7 +15,7 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 text-center text-uppercase middle-part">
-                            <li className="nav-item px-3">
+                            <li className="nav-item px-3 my-1">
                                 <NavLink className="nav-link" aria-current="page" exact to="/">Home</NavLink>
                             </li>
                             

@@ -9,7 +9,7 @@ const ServiceArea = () => {
     const history = useHistory();
     //fetch only login user order
     useEffect(()=>{
-        axios.get('http://localhost:5000/product')
+        axios.get('https://enigmatic-reaches-63281.herokuapp.com/product')
         .then(res=>{
             setProduct(res.data.slice(0,6));
             setLoader(false)

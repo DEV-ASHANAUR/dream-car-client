@@ -34,7 +34,7 @@ const Purchase = () => {
     // console.log(product);
     //fetch single data 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/product/${id}`)
+        axios.get(`https://enigmatic-reaches-63281.herokuapp.com/product/${id}`)
         .then(res=>{
             setProduct(res.data);
             setLoader(false);
@@ -48,7 +48,7 @@ const Purchase = () => {
         setBuffer(true);
         e.preventDefault();
         try {
-            const res = await axios.post(`http://localhost:5000/order`,{
+            const res = await axios.post(`https://enigmatic-reaches-63281.herokuapp.com/order`,{
                 ...data,
                 product_id:product._id,
                 product_name:product.name,

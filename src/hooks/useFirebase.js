@@ -54,7 +54,7 @@ const useFirebase = () => {
     },[auth]);
     //fetch user role
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://enigmatic-reaches-63281.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 if(data?.role === 'user'){
@@ -69,7 +69,7 @@ const useFirebase = () => {
     // save user to the db
     const saveUser = (name,email,method)=> {
         const user = {name:name,email:email,role:'user'};
-        fetch('http://localhost:5000/user', {
+        fetch('https://enigmatic-reaches-63281.herokuapp.com/user', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -77,8 +77,8 @@ const useFirebase = () => {
             body: JSON.stringify(user)
         })
         .then(result => {
-            setIsUser(true);
             setIsAdmin(false);
+            setIsUser(true);
         });
     }
     //logout user

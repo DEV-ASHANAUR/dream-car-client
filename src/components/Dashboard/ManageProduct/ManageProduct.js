@@ -10,7 +10,7 @@ const ManageProduct = () => {
 
     //fetch only login user order
     useEffect(()=>{
-        axios.get('http://localhost:5000/product')
+        axios.get('https://enigmatic-reaches-63281.herokuapp.com/product')
         .then(res=>{
             setLoader(false)
             setProduct(res.data);
@@ -26,7 +26,7 @@ const ManageProduct = () => {
               {
                 label: 'Yes',
                 onClick: () => {
-                    axios.delete(`http://localhost:5000/product/${id}`)
+                    axios.delete(`https://enigmatic-reaches-63281.herokuapp.com/product/${id}`)
                     .then(res=>{
                         if(res.status === 200){
                             const remainProduct = product.filter(item => item._id !== id);

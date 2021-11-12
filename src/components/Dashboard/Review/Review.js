@@ -15,7 +15,7 @@ const Review = () => {
     //fetch user data 
     //fetch user role
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://enigmatic-reaches-63281.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setDbUser(data);
@@ -27,7 +27,7 @@ const Review = () => {
         setBuffer(true);
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/review',{message:messageRef.current.value,ratting:value,userName:dbUser.name,email:dbUser.email});
+            const response = await axios.post('https://enigmatic-reaches-63281.herokuapp.com/review',{message:messageRef.current.value,ratting:value,userName:dbUser.name,email:dbUser.email});
             // console.log(response.data.insertedId);
             if(response.status === 200 && response.data.insertedId){
                 setBuffer(false);

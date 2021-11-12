@@ -26,7 +26,7 @@ const AddProduct = () => {
         setBuffer(true);
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/product',data);
+            const response = await axios.post('https://enigmatic-reaches-63281.herokuapp.com/product',data);
             if(response.status === 200){
                 setBuffer(false);
                 setData({

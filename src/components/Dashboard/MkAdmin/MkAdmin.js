@@ -24,7 +24,7 @@ const MkAdmin = () => {
         setBuffer(true);
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/admin',{...data,requester : user.email,});
+            const response = await axios.post('https://enigmatic-reaches-63281.herokuapp.com/admin',{...data,requester : user.email,});
             if(response.data.modifiedCount === 0){
                 setBuffer(false);
                 setData({

@@ -27,7 +27,7 @@ const Contact = () => {
         setBuffer(true);
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/message',data);
+            const response = await axios.post('https://enigmatic-reaches-63281.herokuapp.com/message',data);
             if(response.status === 200){
                 setBuffer(false);
                 setData({

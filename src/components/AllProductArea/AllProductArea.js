@@ -7,7 +7,7 @@ const AllProductArea = () => {
     const [loader,setLoader] = useState(true);
     //fetch only login user order
     useEffect(()=>{
-        axios.get('http://localhost:5000/product')
+        axios.get('https://enigmatic-reaches-63281.herokuapp.com/product')
         .then(res=>{
             setProduct(res.data);
             setLoader(false)

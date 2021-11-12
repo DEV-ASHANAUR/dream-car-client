@@ -13,7 +13,7 @@ const MyOrder = () => {
 
     //fetch only login user order
     useEffect(()=>{
-        axios.get(`http://localhost:5000/myorder/${user.email}`)
+        axios.get(`https://enigmatic-reaches-63281.herokuapp.com/myorder/${user.email}`)
         .then(res=>{
             setmyOrder(res.data)
             setLoader(false)
@@ -29,7 +29,7 @@ const MyOrder = () => {
               {
                 label: 'Yes',
                 onClick: () => {
-                    axios.delete(`http://localhost:5000/order/${id}`)
+                    axios.delete(`https://enigmatic-reaches-63281.herokuapp.com/order/${id}`)
                     .then(res=>{
                         if(res.status === 200){
                             const remainOrder = myOrder.filter(item => item._id !== id);

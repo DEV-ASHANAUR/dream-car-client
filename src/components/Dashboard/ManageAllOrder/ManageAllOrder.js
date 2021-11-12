@@ -10,7 +10,7 @@ const ManageAllOrder = () => {
 
     //fetch only login user order
     useEffect(()=>{
-        axios.get(`http://localhost:5000/order`)
+        axios.get(`https://enigmatic-reaches-63281.herokuapp.com/order`)
         .then(res=>{
             setOrder(res.data)
             setLoader(false)
@@ -26,7 +26,7 @@ const ManageAllOrder = () => {
               {
                 label: 'Yes',
                 onClick: () => {
-                    axios.delete(`http://localhost:5000/order/${id}`)
+                    axios.delete(`https://enigmatic-reaches-63281.herokuapp.com/order/${id}`)
                     .then(res=>{
                         if(res.status === 200){
                             const remainOrder = order.filter(item => item._id !== id);
@@ -54,7 +54,7 @@ const ManageAllOrder = () => {
         const selectedItem = order.find(item => item._id === id);
         if(selectedItem.status === 'pending'){
             selectedItem.status = 'shipped';
-            axios.put(`http://localhost:5000/order/${id}`,selectedItem)
+            axios.put(`https://enigmatic-reaches-63281.herokuapp.com/order/${id}`,selectedItem)
             .then(res=>{
                 if(res.data.modifiedCount > 0){
                     toast('order is Shift');
@@ -64,7 +64,7 @@ const ManageAllOrder = () => {
             });
         }else{
             selectedItem.status = 'pending';
-            axios.put(`http://localhost:5000/order/${id}`,selectedItem)
+            axios.put(`https://enigmatic-reaches-63281.herokuapp.com/order/${id}`,selectedItem)
             .then(res=>{
                 if(res.data.modifiedCount > 0){
                     toast.success('order is revert to pending');
