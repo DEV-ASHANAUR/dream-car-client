@@ -22,10 +22,10 @@ const Navbar = () => {
                             {
                                 user?.email ?
                                 <>
-                                    <li className="nav-item px-3">
+                                    <li className="nav-item px-3 my-1">
                                         <NavLink className="nav-link" aria-current="page" to="/dashboard">dashboard</NavLink>
                                     </li>
-                                    <li className="nav-item">
+                                    <li className="nav-item my-1">
                                         <button onClick={logOut} className="logout">Logout</button>
                                     </li>
                                 </>
