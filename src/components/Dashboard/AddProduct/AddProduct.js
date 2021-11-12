@@ -63,7 +63,7 @@ const AddProduct = () => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <textarea name="details" value={data.details} onChange={InputEvent} className="textarea-control" cols="30" rows="5" placeholder="Enter Address" required></textarea>
+                        <textarea name="details" value={data.details} onChange={InputEvent} className="textarea-control" cols="30" rows="5" placeholder="Enter Details" required></textarea>
                     </div>
                 </div>
                 <button type="submit" className="send-btn">{ buffer?'Processing..':'Submit'}</button>

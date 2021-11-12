@@ -26,7 +26,7 @@
     padding-left: 10px;
     width: 100%; 
 }
-input,textarea:focus { 
+.input-control,.textarea-control:focus { 
     outline: none !important;
     border-color: #111868;
     box-shadow: 0 0 10px #111868;

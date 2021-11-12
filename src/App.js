@@ -10,6 +10,7 @@ import Navbar from './components/Shared/Navbar/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
+import Purchase from './components/Purchase/Purchase';
 function App() {
   return (
     <div>
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path='/purchase/:id'>
+              <Purchase></Purchase>
             </PrivateRoute>
             <Route path='/register'>
               <SignUp></SignUp>

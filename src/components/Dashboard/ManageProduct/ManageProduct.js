@@ -70,6 +70,7 @@ const ManageProduct = () => {
                                     <table className="table table-striped">
                                     <thead>
                                         <tr>
+                                            <th>Sl</th>
                                             <th>product_id</th>
                                             <th>product Name</th>
                                             <th>price</th>
@@ -78,11 +79,12 @@ const ManageProduct = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            product.map(item=>
+                                            product.map((item,index)=>
                                                 <tr key={item._id}>
+                                                    <td>{index+1}</td>
                                                     <td>{item._id}</td>
                                                     <td>{item.name}</td>
-                                                    <td>{item.price}</td>
+                                                    <td>${item.price}</td>
                                                     
                                                     <td className='text-center'>
                                                         <button

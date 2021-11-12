@@ -1,26 +1,23 @@
 import React,{useState,useEffect} from 'react';
-import './MyOrder.css';
 import { toast,ToastContainer } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import useAuth from '../../../hooks/useAuth';
-const MyOrder = () => {
-    const {user} = useAuth();
-    const [myOrder,setmyOrder] = useState([]);
+const ManageAllOrder = () => {
+    const [order,setOrder] = useState([]);
     const [loader,setLoader] = useState(true);
 
     //fetch only login user order
     useEffect(()=>{
-        axios.get(`http://localhost:5000/myorder/${user.email}`)
+        axios.get(`http://localhost:5000/order`)
         .then(res=>{
-            setmyOrder(res.data)
+            setOrder(res.data)
             setLoader(false)
         }).catch(err=>{
             console.log(err);
         })
-    },[]);
+    },[order]);
     //handle delete
     const deleteItem = (id) =>{
         confirmAlert({
@@ -32,8 +29,8 @@ const MyOrder = () => {
                     axios.delete(`http://localhost:5000/order/${id}`)
                     .then(res=>{
                         if(res.status === 200){
-                            const remainOrder = myOrder.filter(item => item._id !== id);
-                            setmyOrder(remainOrder);
+                            const remainOrder = order.filter(item => item._id !== id);
+                            setOrder(remainOrder);
                             toast.success("Order Deleted Successfully");
                         }
                     }).catch(err=>{
@@ -51,10 +48,36 @@ const MyOrder = () => {
             overlayClassName: "overley"
         });
     }
+    //update order
+    const updateStatus = (id) => {
+        // console.log(id);
+        const selectedItem = order.find(item => item._id === id);
+        if(selectedItem.status === 'pending'){
+            selectedItem.status = 'shipped';
+            axios.put(`http://localhost:5000/order/${id}`,selectedItem)
+            .then(res=>{
+                if(res.data.modifiedCount > 0){
+                    toast('order is Shift');
+                }
+            }).catch(err=>{
+                console.log(err)
+            });
+        }else{
+            selectedItem.status = 'pending';
+            axios.put(`http://localhost:5000/order/${id}`,selectedItem)
+            .then(res=>{
+                if(res.data.modifiedCount > 0){
+                    toast.success('order is revert to pending');
+                }
+            }).catch(err=>{
+                console.log(err);
+            });
+        }
+    }
     return (
         <div>
             <div>
-            <h2 className="text-center"><span style={{borderBottom:'2px solid #111868'}}>My Order({myOrder.length})</span></h2>
+            <h2 className="text-center"><span style={{borderBottom:'2px solid #111868'}}>My Order({order.length})</span></h2>
             {
             loader?
             <div className="col text-center">
@@ -70,14 +93,16 @@ const MyOrder = () => {
                         <div className='myOrderArea'>
                             <div className="table-responsive">
                                 {
-                                    myOrder.length > 0 ?
+                                    order.length > 0 ?
                                     <table className="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>Sl</th>
                                             <th>Order_id</th>
-                                            <th>Customer Name</th>
-                                            <th>Product Name</th>
+                                            <th>Cus_Name</th>
+                                            <th>Address</th>
+                                            <th>phone</th>
+                                            <th>Product_Name</th>
                                             <th>price</th>
                                             <th>Status</th>
                                             <th className='text-center'>Action</th>
@@ -85,20 +110,29 @@ const MyOrder = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            myOrder.map((item,index)=>
+                                            order.map((item,index)=>
                                                 <tr key={item._id}>
                                                     <td>{index+1}</td>
                                                     <td>{item._id}</td>
                                                     <td>{item.name}</td>
+                                                    <td>{item.address}</td>
+                                                    <td>{item.phone}</td>
                                                     <td>{item.product_name}</td>
                                                     <td>${item.price}</td>
-                                                    <td>
+                                                    <td className='text-center'>
                                                         {
                                                             item.status === 'pending' ?
-                                                            <span className="badge rounded-pill bg-warning text-dark">{item.status}</span>
+                                                            <button
+                                                                onClick={()=>updateStatus(item._id)}
+                                                                className='btn btn-warning' title='confirm-order'>Pending
+                                                            </button>
                                                             :
-                                                            <span className="badge rounded-pill bg-success text-white">{item.status}</span>
+                                                            <button
+                                                                onClick={()=>updateStatus(item._id)}
+                                                                className='btn btn-success' title='revert-order'>Shipped 
+                                                            </button>
                                                         }
+                                                        
                                                     </td>
                                                     <td className='text-center'>
                                                         <button
@@ -127,4 +161,4 @@ const MyOrder = () => {
     );
 };
 
-export default MyOrder;
+export default ManageAllOrder;

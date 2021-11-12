@@ -31,16 +31,14 @@ const Navbar = () => {
                                 </>
                                 :
                                 <>
-                                    <li className="nav-item">
+                                    <li className="nav-item my-1">
                                         <NavLink className="nav-link register" aria-current="page" to="/register">Register</NavLink>
                                     </li>
-                                    <li className="nav-item">
+                                    <li className="nav-item my-1">
                                         <NavLink className="nav-link login" aria-current="page" to="/login">Login</NavLink>
                                     </li>
                                 </>
-
                             }
-                            
                         </ul>
                     </div>
                 </div>

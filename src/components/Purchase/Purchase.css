@@ -1,0 +1,22 @@
+.details {
+    margin: 20px 0;
+    box-shadow: 0 0 8px 5px #d5749c42;;
+    padding: 12px;
+    border-radius: 3px;
+}
+.details p{
+    text-align: justify;
+    text-transform: capitalize;
+}
+.image-thumbnail {
+    margin: 20px 0;
+    box-shadow: 0 0 8px 5px #6e596e42;
+    padding: 12px;
+    border-radius: 3px;
+}
+.bookArea{
+    /* margin: 20px 0; */
+    box-shadow: 0 0 8px 5px #6e596e42;
+    padding: 12px;
+    border-radius: 3px;
+}

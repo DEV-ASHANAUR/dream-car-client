@@ -1,6 +1,48 @@
 import React from 'react';
 import './Contact.css';
+import { useState } from 'react';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 const Contact = () => {
+    const [buffer,setBuffer] = useState(false);
+    const [data,setData] = useState({
+        name:'',
+        phone:'',
+        email:'',
+        message:''
+    });
+    //handle input
+    const InputEvent = (event) => {
+        const{name,value} = event.target;
+        setData((prev)=>{
+            return {
+                ...prev,
+                [name] : value,
+            }
+        });
+    }
+    //handleMessage
+    const handleMessage = async(e) => {
+        setBuffer(true);
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:5000/message',data);
+            if(response.status === 200){
+                setBuffer(false);
+                setData({
+                    name:'',
+                    phone:'',
+                    email:'',
+                    message:''
+                });
+                toast.success('Thanks For Your Message!');
+            }
+        } catch (error) {
+            setBuffer(false);
+            console.log(error);
+        } 
+    }
     return (
         <div className="contact__area">
             <div className="contact-shape">
@@ -14,22 +56,22 @@ const Contact = () => {
                         <div className="contact__box">
                             <h2 className="title">Ask Us <span className="pb-3">Any Questions </span></h2>
                             <div className="form__box">
-                                <form action="#">
+                                <form onSubmit={handleMessage}>
                                     <div className="row">
                                         <div className="col-12 col-lg-12 col-sm-12">
-                                            <input type="text" className="my-2" placeholder="Your Name" />
+                                            <input type="text" name="name" value={data.name} onChange={InputEvent} className="my-2" placeholder="Your Name" required />
                                         </div>
                                         <div className="col-12 col-lg-12 col-sm-12">
-                                            <input type="text" className="my-2" placeholder="your phone number" />
+                                            <input type="text" name="phone" value={data.phone} onChange={InputEvent}  className="my-2" placeholder="your phone number" required />
                                         </div>
                                         <div className="col-12 col-lg-12 col-sm-12">
-                                            <input type="email" className="my-2" placeholder="your email" />
+                                            <input name="email" value={data.email} onChange={InputEvent}  type="email" className="my-2" placeholder="your email" required />
                                         </div>
                                         <div className="col-12 col-lg-12 col-sm-12">
-                                            <textarea name="" placeholder="Type here..." className="my-2"></textarea>
+                                            <textarea name="message" value={data.message} onChange={InputEvent} placeholder="Write Something..." className="my-2" required></textarea>
                                         </div>
                                     </div>
-                                    <button className='book-btn'>send message</button>
+                                    <button className='book-btn'>{ buffer?'SENDING..':'SEND MESSAGE'}</button>
                                 </form>
                             </div>
                             
@@ -37,6 +79,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
