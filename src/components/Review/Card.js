@@ -1,6 +1,9 @@
 import React from 'react';
-import { Avatar } from '@mui/material';
-const Card = ({ img }) => {
+import { Avatar, Rating } from '@mui/material';
+const img ="https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"
+const Card = (props) => {
+    const {message,ratting,userName} = props.data;
+    
     return (
       <div
         style={{
@@ -22,15 +25,10 @@ const Card = ({ img }) => {
             marginBottom: 20,
           }}
         />
-        <p>
-          Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia.
-          Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan
-          tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
-          fringilla massa. Etiam hendrerit dolor eget rutrum
-        </p>
+        <p>{message}</p>
+        <Rating name="read-only" precision={0.5} value={ratting} readOnly />
         <p style={{ fontStyle: "italic", marginTop: 25 }}>
-          <span style={{ fontWeight: 500, color: "green" }}>PAULA WILSON</span> ,
-          Media Analyst
+          <span style={{ fontWeight: 500, color: "green" }}>{userName}</span>
         </p>
       </div>
     );

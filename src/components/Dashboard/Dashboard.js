@@ -13,6 +13,8 @@ import AddProduct from './AddProduct/AddProduct';
 import AdminRoute from './AdminRoute';
 import UserRoute from './UserRoute';
 import ManageProduct from './ManageProduct/ManageProduct';
+import MkAdmin from './MkAdmin/MkAdmin';
+import Review from './Review/Review';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -32,8 +34,8 @@ const Dashboard = () => {
                                     isUser &&
                                     <>
                                         <NavLink to={`${url}/myorder`}>My Orders</NavLink>
-                                        <NavLink to={`${url}/pay`}>Review</NavLink>
-                                        <NavLink to={`${url}/review`}>pay</NavLink>
+                                        <NavLink to={`${url}/review`}>Review</NavLink>
+                                        <NavLink to={`${url}/pay`}>pay</NavLink>
                                     </>
                                 }
                                 {
@@ -58,6 +60,9 @@ const Dashboard = () => {
                             <UserRoute path={`${path}/myorder`}>
                                 <MyOrder></MyOrder>
                             </UserRoute>
+                            <UserRoute path={`${path}/review`}>
+                                <Review></Review>
+                            </UserRoute>
                             <AdminRoute path={`${path}/manageallorder`}>
                                 
                             </AdminRoute>
@@ -68,7 +73,7 @@ const Dashboard = () => {
                                 <ManageProduct></ManageProduct>
                             </AdminRoute>
                             <AdminRoute path={`${path}/mkadmin`}>
-                                
+                                <MkAdmin></MkAdmin>
                             </AdminRoute>
                         </Switch>
                         </div>
