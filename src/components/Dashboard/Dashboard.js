@@ -56,6 +56,7 @@ const Dashboard = () => {
                             {/* user route */}
                             <Route exact path={path}>
                                 <h1 className="dashboardHeading">WellCome to dashboard</h1>
+                                <img src="https://assets.website-files.com/5f91be4e005cd67c897b4916/5fa079782a70dfec96ae6acc_home-1.png" className="img-fluid m-auto text-center d-block" width="400" alt="" />
                             </Route>
                             <UserRoute path={`${path}/myorder`}>
                                 <MyOrder></MyOrder>

@@ -61,7 +61,7 @@ const Login = () => {
 
                                         <input type="submit" value={signloading?'Loging..':'submit'} className="submit-btn my-4" />
                                     </form>
-                                    <Link to="/signup" style={{display:'block',textAlign:'center',margin: '15px 0',color:'red',fontSize:'20px',textDecoration:'none'}}>Need A Account?</Link>
+                                    <Link to="/register" style={{display:'block',textAlign:'center',margin: '15px 0',color:'red',fontSize:'20px',textDecoration:'none'}}>Need A Account?</Link>
                                 </div>
                             </div>
                         </div>
