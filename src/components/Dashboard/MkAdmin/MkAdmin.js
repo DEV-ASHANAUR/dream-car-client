@@ -43,6 +43,12 @@ const MkAdmin = () => {
                 });
                 setBuffer(false);
                 toast.error('You Don not Have Any Permission To Make Admin!');
+            }else if(response.data.status === 404){
+                setData({
+                    email:''
+                });
+                setBuffer(false);
+                toast.error('User Not Found!');
             }
         } catch (error) {
             setBuffer(false);
