@@ -72,6 +72,7 @@ const ManageProduct = () => {
                                         <tr>
                                             <th>Sl</th>
                                             <th>product_id</th>
+                                            <th>Photo</th>
                                             <th>product Name</th>
                                             <th>price</th>
                                             <th className='text-center'>Action</th>
@@ -83,6 +84,9 @@ const ManageProduct = () => {
                                                 <tr key={item._id}>
                                                     <td>{index+1}</td>
                                                     <td>{item._id}</td>
+                                                    <td>
+                                                        <img src={item.photo} width="50" className="img-fluid" alt="" />
+                                                    </td>
                                                     <td>{item.name}</td>
                                                     <td>${item.price}</td>
                                                     

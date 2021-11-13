@@ -54,16 +54,21 @@ const useFirebase = () => {
     },[auth]);
     //fetch user role
     useEffect(() => {
+        setIsLoading(true);
         fetch(`https://enigmatic-reaches-63281.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 if(data?.role === 'user'){
                     setIsUser(true);
                     setIsAdmin(false);
+                    setIsLoading(false);
                 }else{
                     setIsAdmin(true);
                     setIsUser(false);
+                    setIsLoading(false);
                 }
+            }).finally(()=>{
+                setIsLoading(false);
             })
     }, [user.email])
     // save user to the db
